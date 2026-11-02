@@ -22,7 +22,7 @@ __Note__: Basic code/setup taken as a template from "Ethical Hacking: A Hands-on
 # Creating the binary
 I have the basic program saved in simple.c and it has been compiled into a binary using 
 ```bash
-$ gcc simple.c -o simple
+gcc simple.c -o simple
 ``` 
 and saved as 'simple'.
 
@@ -31,20 +31,20 @@ and saved as 'simple'.
 Install Python's Virtual Environment & Dependencies (this prevents any potential lib conflicts)
 
 ```bash
-$ sudo apt install python3-dev libffi-dev build-essential virtualenvwrapper -y
+sudo apt install python3-dev libffi-dev build-essential virtualenvwrapper -y
 ```
 
 Configure/Activate Virtual Envinronment Wrapper (source it)
 
 ```bash
-$ . /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+ . /usr/share/virtualenvwrapper/virtualenvwrapper.sh
 ```
 
 
 Create new Virtual Environment
 
 ```bash
-$mkvirtualenv --python=$(which python3) angrEnv
+mkvirtualenv --python=$(which python3) angrEnv
 ```
 
 Install Angr in this newly created environment
@@ -54,7 +54,7 @@ python3 -m pip install angr
 ``` 
 or 
 ```bash
-$ pip3 install angr
+pip3 install angr
 ```  
 (I prefer the former)
 
@@ -66,7 +66,7 @@ Docs for using angr: https://docs.angr.io/core-concepts/toplevel
 Finally, run Angr against our binary to find the password (7857)
 
 ```bash
-$ python3 angrSim.py
+python3 angrSim.py
 ```
 
 If all went well, Angr should find the password and output `Found Solution: 7857`.     
@@ -77,13 +77,13 @@ The "simple2.c" program is a tiny bit more complex and accepts two inputs: 7857 
 If you want to test with this program you can compile this one instead: 
 
 ```bash
-$ gcc simple2.c -o simple
+gcc simple2.c -o simple
 ```
 
 Then run Angr on the "simple" binary that was just created
 
 ```bash
-$ python3 angrSim.py
+python3 angrSim.py
 ```
 
 You should see: `Found Solution: 78570000000123`
